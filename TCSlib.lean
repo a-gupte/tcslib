@@ -21,7 +21,9 @@ import TCSlib.CommunicationComplexity.DeterministicCC
 import TCSlib.CommunicationComplexity.NewmanTheorem
 
 import TCSlib.Complexity.CircuitComplexity
+import TCSlib.Complexity.Expanders
 import TCSlib.Complexity.NPReductions
+import TCSlib.Complexity.Randomized
 
 import TCSlib.Cryptography.SchnorrProtocol
 
