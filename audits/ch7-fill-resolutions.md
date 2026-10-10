@@ -28,8 +28,11 @@ counting layer out, names/statements/imports preserved, affected tree
 rechecked) remains open for the maintainer; the audit does not require it for
 fidelity of the fill additions.
 
-**Carried to the merged branch** (`Shilun-Allan-Li:complexity/arora-barak-ch3-4`,
-which merged this campaign at `0c22ae33`): the merge resolution regressed the
-audited docstrings of `lenEq_mem_P`/`lenLe_mem_P` in `PClosure.lean` (the
-P0-round-1 finding-5 malformed-word documentation was dropped; comment-only, no
-formal drift). Restore them together with this sweep when porting.
+**Porting note** (`Shilun-Allan-Li:complexity/arora-barak-ch3-4`, which merged
+this campaign at `0c22ae33`): the two branches' `PClosure.lean` differ
+comment-only in the `lenEq_mem_P`/`lenLe_mem_P` docstrings — the **merged branch
+carries the longer P0-round-1 finding-5 malformed-word documentation**, while
+this fork branch still carries the shorter pre-P0 forms (an earlier revision of
+this paragraph stated that direction backwards; corrected during the port, which
+caught it). Port this sweep as its own delta (`9a90e7d~1..9a90e7d`), preserving
+the merged branch's longer docstrings; no formal drift either way.
