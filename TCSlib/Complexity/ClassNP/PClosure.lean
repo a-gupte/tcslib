@@ -199,7 +199,16 @@ the second component of a pair and aggregating the answers.  `blockAt a k z i` i
 count is `a'·(n+1)^k'`.  These are the folklore "repeat the machine polynomially many
 times" closures that [AB09] ch. 7 uses tacitly (§7.3, Theorem 7.8; §7.4.1;
 Theorems 7.17–7.18); the machine-level loop lives in
-`TCSlib.Complexity.ClassNP.PolyTimeBlockLoop`. -/
+`TCSlib.Complexity.ClassNP.PolyTimeBlockLoop`.
+
+Like `Complexity.lenEq_mem_P` above, all three sets are **total extensions through
+the default projections**: `pairFstD`/`pairSndD` return `[]` on malformed words, so
+a malformed `z` is decided by the same block queries on its `([], [])` decode rather
+than rejected (with `a' > 0` and `V` containing the empty-block queries, `[]` itself
+is a member).  Exact agreement with `anyVerifier`/`majorityVerifier`/`shiftOrVerifier`
+holds on genuine `pairEncode` inputs, which is all `polyTimeModel` consumes; and
+since every query to `V` is a *re-encoded* valid pair, membership never depends on
+`V`'s values off valid encodings (fill audit round 1, note 3). -/
 
 /-- **`P` is closed under a polynomial block-OR**: if `V ∈ P` then so is the set of
 pairs some of whose `a'·(n+1)^k'` blocks of length `a·(n+1)^k` passes `V`'s test,

@@ -45,7 +45,9 @@ stated in `TCSlib.Complexity.ClassNP.PClosure`, which imports this file.
   clean-call modules (`Turing.FinTM.exists_installCallTM` /
   `exists_emitCallTM`) as the per-round body.
 * `Complexity.polyTimeComputable_xorD` — truncating bitwise XOR is
-  polynomial-time (a one-pass counter program).
+  polynomial-time, proved as an emit-iteration loop customer (fill audit
+  round 1, finding 1: an earlier draft advertised a one-pass counter
+  program here, which cannot pair bits across the encoding separator).
 * The aggregated one-bit block tests live in
   `TCSlib.Complexity.ClassNP.PolyTimeBlockTests`.
 
@@ -293,6 +295,14 @@ polynomial number of times from the input, concatenating a polynomial-time
 chunk `e` of each iterate, is again polynomial-time, provided every iterate
 stays inside one polynomial length envelope `b·(n+1)^l` of the *original*
 input length.
+
+The envelope `horbit` quantifies over **all** iterates `i`, not only the
+`a'·(n+1)^k' + 1` scheduled ones: a step like `g s = s ++ [false]`, whose
+scheduled orbit is polynomially bounded but whose full orbit is not, is out
+of scope.  Every customer in this development satisfies the stronger form
+(their steps are absorbed by a `blockDone` fixed point); a future
+generalization could demand the bound only on the scheduled orbit (fill
+audit round 1, note 4).
 
 **Proof sketch.** Unpack the two machines and apply
 `Turing.FinTM.exists_emitIterTM` (in

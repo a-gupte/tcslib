@@ -714,7 +714,9 @@ machines computing the step `g` and the chunk `e` within polynomial budgets,
 and a polynomial length envelope for the orbit of `g`, one finite machine
 computes the concatenation of the chunks `e (g^[i] w)` for
 `i = 0, …, a'·(|w|+1)^k'`, within a polynomial budget in the `C·(n+1)^c`
-normal form.
+normal form.  (The envelope `horbit` covers *all* iterates, not only the
+scheduled ones — see the remark on `Complexity.polyTimeComputable_emitIter`;
+fill audit round 1, note 4.)
 
 **Proof sketch.** Instantiate `Turing.FinTM.exists_emitLoopTM` at the body
 machine `emitIterBody` built from the two clean-call modules

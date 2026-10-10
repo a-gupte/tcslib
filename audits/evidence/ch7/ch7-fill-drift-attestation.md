@@ -40,7 +40,7 @@ Signature comparison splits each declaration at its first top-level `:=`
 
 | Module | decls | public |
 |---|---:|---|
-| `TuringMachine/Build/EmitIterEmbed` | 18 | 18 (safe runs, output-prefix commutation, padding embedding, control steps) |
+| `TuringMachine/Build/EmitIterEmbed` | 18 | 18 (safe runs, output-prefix commutation, padding embedding; the control-step lemmas are `private` in `EmitIterBody`, not here — round-1 finding 2) |
 | `TuringMachine/Build/EmitIterBody` | 19 | 1 (`FinTM.exists_emitIterTM`; the body machine, copier, and round lemmas are private) |
 | `ClassNP/PolyTimeBlockLoop` | 32 | 22 (slices, FP helpers, `polyTimeComputable_emitIter`, `xorD`) |
 | `ClassNP/PolyTimeBlockTests` | 25 | 3 (`blockAt`, the OR and XOR-then-OR tests) |
